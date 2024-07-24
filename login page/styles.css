@@ -2,6 +2,7 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	font-family: 'Roboto';
 }
 body{
 	width: 100%;
@@ -9,10 +10,10 @@ body{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	/* background: linear-gradient(to top right,#5EDAE1,#58BADE,#59A8E1,#5F99E3,#BE40F2,#BF3EF1,#D33AF4,#E839FA); */
 	background-image: url(./Sree\ Padmanabhaswamy\ Temple.jpg);
 	background-position: center;
 	background-size: cover;
+	transition: all .6s;
 }
 .login_div{
 	width: 425px;
@@ -22,7 +23,8 @@ body{
 	position: relative;
 	border-radius: 50px;
 	opacity: .9;
-	/* display: none; */
+	/* backface-visibility: hidden; */
+	/* transform: rotateY(180deg); */
 }
 .login_div h1,
 .signup_div h1{
@@ -65,7 +67,6 @@ input{
 	box-shadow: 3px 5px 5px grey;
 }
 .login_user_input i,input,
-/* .login_password_input i,input, */
 .signup_user_input i,input,
 .signup_password_input i,input,
 .cfmpassword_input i,input{
@@ -90,7 +91,6 @@ input{
 	height: 35px;
 	margin: auto;
 	border-radius: 35px;
-	/* background: linear-gradient(to right,#5EDAE1,#58BADE,#59A8E1,#5F99E3,#BE40F2,#BF3EF1,#D33AF4,#E839FA); */
 	background-color: #E6B643;
 	text-align: center;
 	align-content: center;
@@ -114,15 +114,16 @@ input{
 	border-radius: 20px;
 	cursor: pointer;
 }
+
 .login_sign_up_btn:hover{
 	color: white;
 }
+
 .signup_text{
 	color: grey;
 	font-size: 14px;
 	text-align: center;
 	margin: 30px 0;
-	/* margin-left: 0; */
 }
 .terms{
 	font-size: 11px;
@@ -138,8 +139,30 @@ input{
 }
 
 
+.flip_card {
+	background-color: transparent;
+	width: 425px;
+	height: 575px;
+	perspective: 1000px;
+}
 
-/* signup division */
+.inner_card{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	transition: transform 0.6s;
+	transform-style: preserve-3d;
+}
+
+.login_div, .signup_div {
+	width: 100%;
+	height: 100%;
+	transition: transform .6s;
+	/* backface-visibility: hidden; */
+  }
+
+
+
 .signup_div{
 	width: 425px;
 	height: 575px;
@@ -149,6 +172,7 @@ input{
 	border-radius: 50px;
 	display: none;
 	opacity: .9;
+	transform : rotateY(180deg);
 }
 .signup_div p{
 	margin-top: 10px;
@@ -191,4 +215,103 @@ input{
 	cursor: pointer;
 	font-size: 16px;
 	margin-left: 50px;
+}
+
+.signup_password_input,
+.cfmpassword_input{
+	position: relative;
+}
+.signup_password_input .fa-eye-slash,
+.cfmpassword_input .fa-eye-slash{
+	position: absolute;
+	right: 5%;
+	align-content: center;
+	top: 25%;
+}
+
+/* ..cfmpassword_input .fa-eye-slash{
+	position: absolute;
+	right: 0;
+} */
+
+
+
+.error_div{
+	text-align: center;
+	/* align-content: center; */
+	position: absolute;
+	width: 350px;
+	height: 200px;
+	background-color: white;
+	border-radius: 25px;
+	/* margin: 0 auto; */
+	box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+	opacity: 1;
+	top: -350px;
+	transition: all .5s ease;
+}
+.error_div i{
+	/* position: absolute; */
+	margin-top: 25px;
+	font-size: 36px;
+}
+
+.error_div p{
+	font-size: 20px;
+	align-content: center;
+	margin-top: 20px;
+}
+
+.succ_login{
+	text-align: center;
+	/* align-content: center; */
+	position: absolute;
+	width: 350px;
+	height: 200px;
+	background-color: white;
+	border-radius: 25px;
+	margin: auto;
+	box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+	display: none;
+}
+
+.succ_login i{
+	/* position: absolute; */
+	margin-top: 25px;
+	font-size: 36px;
+}
+
+.succ_login p{
+	font-size: 16px;
+	align-content: center;
+	margin-top: 20px;
+}
+
+.succ_login .login{
+	width: 80%;
+	height: 35px;
+	margin: auto;
+	border-radius: 35px;
+	background-color: #E6B643;
+	text-align: center;
+	align-content: center;
+	color: white;
+	cursor: pointer;
+	margin-top: 16px;
+}
+
+
+.logged{
+	width: fit-content;
+	height: fit-content;
+	padding: 15px 20px;
+	font-size: 18px;
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	background-color: white;
+	color: #E6B643;
+	border-radius: 50px;
+	transition: all .5s;
+	opacity: 0;
 }
