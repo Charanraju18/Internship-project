@@ -49,8 +49,6 @@ function signup() {
         sign_cfmpassword.value = "";
 
         console.log(loggedin);
-
-
       }
     }
   }
