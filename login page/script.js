@@ -121,6 +121,11 @@ function login() {
         y.style = "display : none";
         user_found = true;
       }
+      else if((lst[i].name === email.value || lst[i].email === email.value) &&
+      lst[i].password !== password.value){
+        window.alert("Invalid Password! Please Try Again");
+      }
+      user_found = true;
     }
     if (!user_found) {
       var err = document.getElementsByClassName("error_div")[0];

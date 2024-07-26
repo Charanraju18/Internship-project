@@ -5,7 +5,7 @@
 	font-family: 'Roboto';
 }
 body{
-	width: 100%;
+	min-width: 320px;
 	height: 100svh;
 }
 .explore_div{
@@ -62,25 +62,44 @@ body{
 	width: 100%;
 	filter: drop-shadow(0 0 5px black);
 	transition: all .5s linear ;
+	width: 105%;
+	height: 105%;
+}
+.state_div p{
+	transform: translateY(0);
+	opacity: 1;
 }
 
 .state_div .state_name{
 	position: absolute;
 	bottom: 20px;
 	font-size: 20px;
-	transform: translateY(75px);
-	opacity: 0;
-}
-.state_div:hover img {
-	transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
-	width: 105%;
-	height: 105%;
-}
-.state_div:hover p{
-	transform: translateY(0);
-	opacity: 1;
 }
 
+@media screen and (min-width:769px){
+	.state_div img{
+		height: 100%;
+		width: 100%;
+		filter: drop-shadow(0 0 5px black);
+		transition: all .5s linear ;
+	}
+	.state_div:hover img {
+		transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
+		width: 105%;
+		height: 105%;
+	}
+	.state_div .state_name{
+		position: absolute;
+		bottom: 20px;
+		font-size: 20px;
+		transform: translateY(75px);
+		opacity: 0;
+	}
+	.state_div:hover p{
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
 .view_more{
 	margin-top: 0;
 	cursor: pointer;
