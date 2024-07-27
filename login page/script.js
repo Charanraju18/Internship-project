@@ -1,6 +1,4 @@
-var lst = [
-  { name: "charan", email: "charan", password: "charan" }
-];
+var lst = [{ name: "charan", email: "charan", password: "charan" }];
 var loggedin = false;
 function signup() {
   var obj = {};
@@ -8,8 +6,12 @@ function signup() {
   var sign_email = document.getElementsByClassName("signup_email")[0];
   var sign_password = document.getElementsByClassName("password1")[0];
   var sign_cfmpassword = document.getElementsByClassName("password2")[0];
-  console.log(sign_password.value);
-  console.log(sign_cfmpassword.value);
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const isValid = emailPattern.test(sign_email.value);
+  if(!isValid){
+    window.alert("Invalid User!");
+  }
+  else{
   var userExists = false;
   for (let i = 0; i < lst.length; i++) {
     if (lst[i].name === sign_name.value && lst[i].email === sign_email.value) {
@@ -51,6 +53,7 @@ function signup() {
         console.log(loggedin);
       }
     }
+  }
   }
 }
 
@@ -109,24 +112,22 @@ function login() {
         console.log("User Exists");
         var logged = document.getElementsByClassName("logged")[0];
         logged.style = "opacity : 1";
-        setTimeout(()=>{
-          logged.style.opacity="0",
-          logged.style.transition = "all .5s ease"
-        },5000);
-
-        var x = document.getElementsByTagName("BODY")[0];
-        x.style =
-          "background-image: url(https://i.natgeofe.com/n/b9e9b8d1-fa08-4b90-96bb-310cace03847/meenakshi-amman-temple-india.jpg)";
-        var y = document.getElementsByClassName("inner_card")[0];
-        y.style = "display : none";
+        setTimeout(() => {
+          (logged.style.opacity = "0"),
+            (logged.style.transition = "all .5s ease");
+        }, 5000);
+        var main = docu
+        user_found = true;
+      } else if (
+        (lst[i].name === email.value || lst[i].email === email.value) &&
+        lst[i].password !== password.value
+      ) {
+        window.alert("Invalid Password! Please Try Again");
         user_found = true;
       }
-      else if((lst[i].name === email.value || lst[i].email === email.value) &&
-      lst[i].password !== password.value){
-        window.alert("Invalid Password! Please Try Again");
-      }
-      user_found = true;
+
     }
+
     if (!user_found) {
       var err = document.getElementsByClassName("error_div")[0];
       err.style = "opacity : 1";
@@ -134,22 +135,16 @@ function login() {
       err.style.transition = "all .5s ease";
     }
   }
+  email.value = "";
+  password.value = "";
 }
 var c = 0;
 function showpassword() {
   var x = document.getElementsByClassName("user_password")[0];
   if (c == 0) {
-    var y1 = document.getElementsByClassName("fa-eye-slash");
-    y1.style = "display : none";
-    var y2 = document.getElementsByClassName("fa-eye");
-    y2.style = "display : inline-block";
     x.type = "text";
     c = 1;
   } else {
-    var y1 = document.getElementsByClassName("fa-eye-slash");
-    y1.style = "display : inline-block";
-    var y2 = document.getElementsByClassName("fa-eye");
-    y2.style = "display : none";
     x.type = "password";
     c = 0;
   }
@@ -159,17 +154,9 @@ var c1 = 0;
 function showpassword1() {
   var x = document.getElementsByClassName("password1")[0];
   if (c1 == 0) {
-    var y1 = document.getElementsByClassName("fa-eye-slash");
-    y1.style = "display : none";
-    var y2 = document.getElementsByClassName("fa-eye");
-    y2.style = "display : inline-block";
     x.type = "text";
     c1 = 1;
   } else {
-    var y1 = document.getElementsByClassName("fa-eye-slash");
-    y1.style = "display : inline-block";
-    var y2 = document.getElementsByClassName("fa-eye");
-    y2.style = "display : none";
     x.type = "password";
     c1 = 0;
   }
@@ -179,18 +166,100 @@ var c2 = 0;
 function showpassword2() {
   var x = document.getElementsByClassName("password2")[0];
   if (c2 == 0) {
-    var y1 = document.getElementsByClassName("fa-eye-slash");
-    y1.style = "display : none";
-    var y2 = document.getElementsByClassName("fa-eye");
-    y2.style = "display : inline-block";
     x.type = "text";
     c2 = 1;
   } else {
-    var y1 = document.getElementsByClassName("fa-eye-slash");
-    y1.style = "display : inline-block";
-    var y2 = document.getElementsByClassName("fa-eye");
-    y2.style = "display : none";
     x.type = "password";
     c2 = 0;
   }
+}
+
+var fp1 = 0;
+function for_showpassword1() {
+  var x = document.getElementsByClassName("forget_password1")[0];
+  if (fp1 == 0) {
+    x.type = "text";
+    fp1 = 1;
+  } else {
+    x.type = "password";
+    fp1 = 0;
+  }
+}
+var fp2 = 0;
+function for_showpassword2() {
+  var x = document.getElementsByClassName("forget_password2")[0];
+  if (fp2 == 0) {
+    x.type = "text";
+    fp2 = 1;
+  } else {
+    x.type = "password";
+    fp2 = 0;
+  }
+}
+function forget_password() {
+  var x = document.getElementsByClassName("flip_card")[0];
+  x.style = "display : none";
+  var y = document.getElementsByClassName("forget_password_div")[0];
+  y.style = "display : block";
+}
+
+function reset_pass() {
+  var x = document.getElementsByClassName("forget_input_user_name")[0];
+  var y = document.getElementsByClassName("forget_password1")[0];
+  var z = document.getElementsByClassName("forget_password2")[0];
+  var user = false;
+  if (x.value === "" || y.value === "" || z.value === "") {
+    window.alert("Please fill all the details inorder to reset your password.");
+  }
+  else {
+    if (y.value !== z.value) {
+      window.alert("Password didn't match");
+    }
+    else {
+      for (let i = 0; i < lst.length; i++) {
+        if (x.value === lst[i].name) {
+          console.log("old password = ", lst[i].password);
+          lst[i].password = z.value;
+          console.log("new password = ", lst[i].password);
+          var abc = document.getElementsByClassName("flip_card")[0];
+          window.alert("Password has been reset successfully! Please Login");
+          abc.style = "display : block";
+          var def = document.getElementsByClassName("forget_password_div")[0];
+          def.style = "display : none";
+          user = true;
+          break;
+        }
+      }
+      if(!user) {
+        window.alert("User Not Found!");
+        var sign = document.getElementsByClassName("forget_sign")[0];
+        sign.style = "display : block";
+      }
+    }
+  }
+}
+
+
+function remove_error(){
+  var x = document.getElementsByClassName("error_div")[0];
+  x.style = "display : none";
+}
+
+function open_signup_page(){
+  var frg = document.getElementsByClassName("forget_password_div")[0];
+  frg.style = "display : none";
+
+  var w = document.getElementsByClassName("flip_card")[0];
+  w.style = "display: block";
+
+  var x = document.getElementsByClassName("inner_card")[0];
+  x.style = "transform : rotateY(180deg)";
+
+  var y = document.getElementsByClassName("signup_div")[0];
+  y.style = "display : block";
+
+  var z = document.getElementsByClassName("login_div")[0];
+  z.style = "transform : rotateY(180deg)";
+  z.style = "display : none";
+
 }

@@ -42,12 +42,11 @@
               type="password"
               placeholder="Type your password"
             />
-            <i class="fa-solid fa-eye" onclick="showpassword()"></i>
             <i class="fa-solid fa-eye-slash" onclick="showpassword()"></i>
           </p>
-          <p class="forget">Forget Password?</p>
+          <p class="forget" onclick="forget_password()">Forget Password?</p>
           <div class="login_btn" onclick="login()">LOGIN</div>
-          <p class="signup_text" style="margin-left: 0">Or</p>
+          <p class="or_text">Or</p>
           <div class="login_sign_up_btn" onclick="signup_from_login()">
             signup
           </div>
@@ -111,20 +110,57 @@
     </div>
 
     <div class="error_div">
-      <i class="fa-solid fa-circle-xmark" style="color: #ff0000"></i>
+      <i class="fa-solid fa-circle-xmark" style="color: #ff0000" onclick="remove_error()"></i>
       <p>No User Found, Please SignUp</p>
-      <div class="login_sign_up_btn" onclick="signup_from_login()">
-        signup
-      </div>
+      <div class="login_sign_up_btn" onclick="signup_from_login()">signup</div>
     </div>
 
     <div class="succ_login">
-      <i class="fa-solid fa-circle-check" style="color: #00ff00;"></i>
+      <i class="fa-solid fa-circle-check" style="color: #00ff00"></i>
       <p>You have successfully registered. Now please Login.</p>
       <div class="login" onclick="login_from_signup()">LOGIN</div>
     </div>
 
     <div class="logged">Logged In Successfully!</div>
+
+    <div class="forget_password_div">
+      <h1>Forget Password</h1>
+      <p class="forget_user_name">User Name</p>
+      <p class="forget_user_input">
+        <i class="fa-solid fa-user" style="color: #b8b8b8"></i
+        ><input
+          required
+          class="forget_input_user_name"
+          type="text"
+          placeholder="Enter user name or Email"
+        />
+      </p>
+      <p class="forget_password charan">Enter new password</p>
+      <p class="forget_password_input">
+        <i class="fa-solid fa-lock" style="color: #b8b8b8"></i
+        ><input
+          class="forget_password1"
+          type="password"
+          placeholder="Type your password"
+          required
+        />
+        <i class="fa-solid fa-eye-slash" onclick="for_showpassword1()"></i>
+      </p>
+      <p class="forget_cfmpassword charan">Confirm password</p>
+      <p class="forget_cfmpassword_input">
+        <i class="fa-solid fa-lock" style="color: #b8b8b8"></i
+        ><input
+          class="forget_password2"
+          type="password"
+          placeholder="Re-enter your password"
+          required
+        />
+        <i class="fa-solid fa-eye-slash" onclick="for_showpassword2()"></i>
+      </p>
+      <div class="reset_password" onclick="reset_pass()">RESET</div>
+
+      <div class="forget_sign" onclick="open_signup_page()">SIGN UP</div>
+    </div>
     <script src="./script.js"></script>
   </body>
 </html>

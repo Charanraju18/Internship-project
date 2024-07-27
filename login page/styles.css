@@ -36,26 +36,28 @@ body{
 .signup_div h1{
 	margin: 15px auto;
 }
-.login_div p,
-.signup_div p{
-	margin: 25px autp;
+.or_text{
+	text-align: center;
+	margin-top: 25px;
 }
-
 .signup_user_name{
 	margin-top: 25px;
 }
 input{
 	background-color: transparent;
-}
-input{
 	border: none;
 	outline: none;
 }
+
 .login_user_input,
 .login_password_input,
 .signup_password_input,
 .cfmpassword_input,
-.signup_user_input{
+.signup_user_input,
+.forget_user_input,
+.forget_password_input,
+.forget_cfmpassword_input{
+
 	margin: 10px auto;
 	width: 80%;
 	height: fit-content;
@@ -66,14 +68,18 @@ input{
 	box-shadow: 3px 5px 5px grey;
 }
 .login_user_input i,input,
+.forget_user_input i,input,
 .signup_user_input i,input,
 .signup_password_input i,input,
-.cfmpassword_input i,input{
+.cfmpassword_input i,input,
+.forget_password_input i,input,
+.forget_cfmpassword_input i,input{
 	margin-left: 10px;
 	font-size: 16px;
 }
 .login_password,
 .login_user_name,
+.forget_user_name,
 .charan{
 	height: fit-content;
 	width: 80%;
@@ -252,10 +258,18 @@ input{
 	top: 25%;
 }
 
-/* ..cfmpassword_input .fa-eye-slash{
+.forget_password_input,
+.forget_cfmpassword_input{
+	position: relative;
+}
+
+.forget_password_input .fa-eye-slash,
+.forget_cfmpassword_input .fa-eye-slash{
 	position: absolute;
-	right: 0;
-} */
+	right: 5%;
+	margin-top: 1.25%;
+	/* align-content: center; */
+}
 
 
 
@@ -277,6 +291,7 @@ input{
 	/* position: absolute; */
 	margin-top: 25px;
 	font-size: 36px;
+	cursor: pointer;
 }
 
 .error_div p{
@@ -337,4 +352,52 @@ input{
 	border-radius: 50px;
 	transition: all .5s;
 	opacity: 0;
+}
+
+
+
+.forget_password_div{
+	width: 425px;
+	height: 575px;
+	background-color: #faf1d2;
+	font-family: 'Roboto';
+	position: relative;
+	border-radius: 50px;
+	opacity: .9;
+	margin: auto;
+	display: none;
+}
+.forget_password_div h1{
+	margin: 40px auto;
+	font-weight: normal;
+	width:fit-content;
+	height: fit-content;
+}
+
+.reset_password{
+	width: 75%;
+	height: fit-content;
+	padding: 10px;
+	margin: 40px auto;
+	background-color: #E6B643;
+	text-align: center;
+	align-content: center;
+	border-radius: 15px;
+}
+.reset_password:hover{
+	cursor: pointer;
+	color: white;
+}
+
+.forget_sign{
+	width: 75%;
+	height: fit-content;
+	padding: 10px;
+	margin: 40px auto;
+	background-color: #d8b070;
+	text-align: center;
+	align-content: center;
+	border-radius: 15px;
+	display: none;
+	cursor: pointer;
 }
